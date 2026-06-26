@@ -1,5 +1,9 @@
 # Frontcraft
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-da7756.svg)](https://claude.com/claude-code)
+[![Stars](https://img.shields.io/github/stars/BatakSolutions/frontcraft?style=social)](https://github.com/BatakSolutions/frontcraft/stargazers)
+
 A **Claude Code skill for web design and frontend** that makes Claude build
 websites and interfaces with actual taste, instead of the symmetric, gray,
 centered, forgettable output you get by default. One of the more complete

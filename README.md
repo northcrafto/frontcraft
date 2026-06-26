@@ -1,8 +1,10 @@
 # Frontcraft
 
-A frontend design skill for [Claude Code](https://claude.com/claude-code) that
-makes Claude build interfaces with actual taste, instead of the symmetric, gray,
-centered, forgettable output you get by default.
+A **Claude Code skill for web design and frontend** that makes Claude build
+websites and interfaces with actual taste, instead of the symmetric, gray,
+centered, forgettable output you get by default. One of the more complete
+web-design skills for Claude Code: it asks for a direction, sources real images,
+and reviews its own work.
 
 Frontcraft pushes Claude to **commit to a design direction before writing markup**,
 then execute it with real typographic discipline, restrained color, intentional

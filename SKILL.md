@@ -239,6 +239,19 @@ Multi-page is fine and often expected (a page per service). Keep the header, typ
 palette, and spacing identical across pages so it reads as one site. Full recipe,
 with markup patterns, in `references/business-site.md`.
 
+**When the brief wants short and simple instead of long** — "make it shorter", "I
+don't want to scroll so much", "like *that* site", or the content is a handful of
+comparable items (services, places, categories) rather than a story — don't keep
+stacking full-bleed sections. Use the **compact filter landing**: one full-screen
+hero, then clickable category tiles that filter a card grid *in place* (no new
+pages, no long scroll), then a contact block. The whole site is ~3 screens, it's
+fast to build, and the visitor picks what they care about instead of scrolling
+past everything. It's the default shape for "one company, a few things." Full
+recipe — hero scrim layering, the filter tiles' `aria-pressed`/live-region
+accessibility, the mailto-or-backend contact form, and the page plumbing
+(`scroll-padding-top`, focusable skip target, non-focusable closed drawer) — is in
+`references/compact-filter-landing.md`.
+
 ## Making it feel expensive (premium / high-end)
 
 When the user wants a site that looks *fixed and expensive* — agency-grade,

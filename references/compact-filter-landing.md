@@ -46,6 +46,66 @@ the user, one accent, tinted neutrals, real images (verify them), no em-dashes i
 copy, ration eyebrows (this layout naturally wants **one** — on the hero), design
 every state, and run the review panel after.
 
+## Navigation (the header) — the familiar three, conditionally
+
+Keep the header to the few things a visitor expects, in this order from the
+brand: **[Tjänster ▾] · Om oss · Kontakt** (plus a phone number for a local
+business). Each has a rule:
+
+- **Tjänster / Services — a hover-and-focus dropdown, but only if the business
+  actually has more than one service.** If it offers a single thing, or it's a
+  place/portfolio with no "services", **leave this out entirely** — don't invent a
+  dropdown to look busy. When it exists, it lists the service pages/categories.
+  Hover-only is an accessibility failure: it must also open on keyboard focus and
+  on click/tap, and on mobile it expands inline inside the drawer (no hover there).
+
+  ```html
+  <li class="nav__item has-menu">
+    <button class="nav__top" aria-haspopup="true" aria-expanded="false">Tjänster</button>
+    <ul class="nav__menu">
+      <li><a href="/tjanster/ljud">Ljud</a></li>
+      <li><a href="/tjanster/ljus">Ljus</a></li>
+      <li><a href="/tjanster/event">Event</a></li>
+    </ul>
+  </li>
+  ```
+  ```css
+  .nav__menu { position:absolute; min-width:200px; opacity:0; visibility:hidden;
+    transform:translateY(6px); transition:opacity .18s, transform .18s, visibility 0s linear .18s; }
+  /* open on hover OR keyboard focus within the group */
+  .has-menu:hover .nav__menu,
+  .has-menu:focus-within .nav__menu { opacity:1; visibility:visible; transform:none; transition-delay:0s; }
+  ```
+  ```js
+  // click/tap toggle + Escape, so it works without a mouse
+  topBtn.addEventListener('click', function(){
+    var open = topBtn.getAttribute('aria-expanded') === 'true';
+    topBtn.setAttribute('aria-expanded', String(!open));
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') topBtn.setAttribute('aria-expanded','false');
+  });
+  ```
+  Drive the visible menu off `:hover`/`:focus-within` *and* `[aria-expanded="true"]`
+  so mouse, keyboard, and touch all open it. A caret (▾) signals it drops down.
+
+- **Om oss — its own page, never an on-page section.** "About" belongs at
+  `/om-oss` (or `about.html`), not as a block scrolled to on the landing page.
+  Link to the page from the nav. Keep the header, type, palette, and spacing
+  identical to the landing page so it reads as one site (see `business-site.md`
+  for the multi-page shape). This means the "compact landing" is usually *landing
+  page + a couple of real sub-pages* (Om oss, maybe per-service pages), not a
+  literal single file.
+
+- **Kontakt — jumps straight to sending mail.** The nav Kontakt link lands the
+  visitor directly on the contact form (`#kontakt` on the one-pager, or `/kontakt`
+  on a multi-page site) — one click from anywhere to "write us". Style it as the
+  one CTA in the header. Don't make Kontakt a page that *then* makes them hunt for
+  the form; drop them on the form (and consider focusing the first field).
+
+If a site has none of these (e.g. a place guide with no company behind it), don't
+manufacture them — a brand + one or two in-page links is honest and fine.
+
 ## The three parts
 
 ### 1. Full-screen hero (the one screen that sells it)
@@ -167,5 +227,8 @@ bad fields and clear it on input, visible focus rings, an `:user-invalid` style.
 - Filter announces results to AT; empty state exists.
 - Hero text legible **on the render**; scrim above the image.
 - One eyebrow (hero), not one per section. Zero em-dashes in copy.
+- Nav: a Tjänster dropdown **only if** there really are several services (and it
+  opens on hover, focus, and tap); Om oss is its **own page**; Kontakt lands
+  straight on the form. None invented where the content doesn't have them.
 - The whole thing is genuinely short — if you've added a fourth and fifth full
   section, you've drifted back into the long-scroll shape; pull it back.

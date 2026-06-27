@@ -222,8 +222,13 @@ Most client and small-business sites want a structure visitors already understan
 Deliver it — the taste goes into *how* each part looks, not into inventing a layout
 nobody recognizes. The standard spine:
 
-1. **Header / nav** — logo + a few links (and a phone number or "Book" CTA for a
-   local business).
+1. **Header / nav** — logo + the familiar few: a **Services/Tjänster dropdown**
+   (hover *and* keyboard/tap accessible) **only if the business actually has
+   several services** — omit it otherwise rather than faking one; **Om oss as its
+   own page**, not an on-page section; and a **Kontakt** link that drops the
+   visitor straight onto the contact form. Add a phone number or "Book" CTA for a
+   local business. (Dropdown + about-page + contact-jump recipe in
+   `references/compact-filter-landing.md`.)
 2. **Hero** — a full-bleed image with a confident headline (one word italicized
    for emphasis reads well), a one-line promise, and one primary action.
 3. **About / intro** — a short "who we are" with one supporting image. On bigger

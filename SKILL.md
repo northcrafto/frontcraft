@@ -114,13 +114,18 @@ when to stop: a calm, airy brief should not sprout six animations and a packed g
 
 ## Color — restraint reads as confidence
 
-- **Ask before you guess.** If the user hasn't told you a palette, brand color, or
-  mood, and you're working with them interactively, **ask which colors they want**
-  before committing — offer 3–4 concrete named palettes (with the actual hex values
-  and a tiny swatch preview), not an open-ended "what colors?". A safe-looking
-  near-white default is the most common reason a design reads as "boring/too white"
-  — don't fall into it by accident. Only skip the question when the brief, an
-  existing site, or the codebase already fixes the colors.
+- **Ask before you guess — this is a hard gate, not a nicety.** If you're working
+  interactively and the palette isn't already fixed (by the brief, an existing
+  site, or the codebase), **you must ask which colors the user wants and get an
+  answer _before_ you write any markup or CSS.** Offer 3–4 concrete named palettes
+  with actual hex values and a tiny swatch preview, not an open-ended "what
+  colors?". Picking a palette yourself and building is a process error *even if the
+  result looks fine* — the user owns this choice, and skipping it is the fastest way
+  to ship something they then have to send back. A safe near-white default is also
+  the most common reason a design reads as "boring/too white". Same deal for the
+  overall direction (see "the one rule"): direction and color are both choose-first,
+  build-after. If you catch yourself starting on the hero before either is settled,
+  stop and ask.
 - **One palette, committed.** A small set of neutrals plus **one** accent does
   more than a rainbow. If you reach for a second accent, justify it.
 - **Build a real ramp, not "some nice colors."** A palette is a small system of

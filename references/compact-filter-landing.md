@@ -225,17 +225,19 @@ bad fields and clear it on input, visible focus rings, an `:user-invalid` style.
   return focus to the burger, and morph the burger to an X.
 - **`:focus-visible`** on *every* interactive element (buttons, links, the hero
   CTAs), not just the ones you remembered.
-- **Animated link underline (a tasteful hover affordance).** A thin line that
-  grows in under nav/text links on hover reads as crafted. Make it *exit* as
-  smoothly as it enters: grow from the left on hover, retract to the right on leave
-  by flipping `transform-origin` between the two states — never let it rewind back
-  the way it came (that looks janky). `background: currentColor` makes the line
-  follow a light/dark nav flip for free.
+- **Animated link underline (a tasteful hover affordance).** A thin line under
+  nav/text links on hover reads as crafted. The smoothest version grows
+  symmetrically **from the centre outward** and retracts back to the centre on
+  leave — animate `left`/`right` from `50%/50%` to `0/0`, *not* a `scaleX`
+  transform-origin trick (the origin-flip rewinds oddly and is a common
+  disappointment). `background: currentColor` makes the line follow a light/dark
+  nav flip for free.
   ```css
-  .link::after { content:""; position:absolute; left:0; bottom:-5px; width:100%;
-    height:1.5px; background:currentColor; transform:scaleX(0);
-    transform-origin:right; transition:transform .34s var(--ease); }
-  .link:hover::after { transform:scaleX(1); transform-origin:left; }
+  .link { position:relative; }
+  .link::after { content:""; position:absolute; left:50%; right:50%; bottom:-6px;
+    height:1.5px; background:currentColor;
+    transition:left .3s var(--ease), right .3s var(--ease); }
+  .link:hover::after { left:0; right:0; }
   ```
 - **Nav over a photo hero must flip.** A fixed nav sitting on a dark hero needs
   *light* logo/links/burger; the instant it scrolls onto the light body it must

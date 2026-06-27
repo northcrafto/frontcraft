@@ -45,6 +45,10 @@ the build is dark-with-a-bright-accent, treat it as look #2 and redesign.
   serifs. Avoid them as defaults; if a serif is justified, pick a less-worn one.
 - **Emphasis inside a headline** = italic or bold of the *same* family. Never inject
   a lone serif word into a sans headline (or vice versa) for "interest."
+- **Don't tint a single word a different hue for "pop."** A lone accent-colored word
+  dropped into a headline or running text reads as a cheap template move, not
+  emphasis. Emphasis is italic or weight of the *same* family in the *same* color;
+  keep the accent for the CTA and small UI, off the prose.
 - **Inter** is fine only when a neutral / Linear-style feel is the actual goal.
 
 ## Color tells

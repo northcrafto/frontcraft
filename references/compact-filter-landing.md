@@ -111,7 +111,13 @@ manufacture them — a brand + one or two in-page links is honest and fine.
 ### 1. Full-screen hero (the one screen that sells it)
 
 `min-height: 100svh`, image full-bleed behind, content bottom-left (not centered —
-that's the AI default). **The scrim must paint _above_ the image**, or light text
+that's the AI default). **The headline, lead, and CTA sit _on_ the photo —
+overlaid, with the scrim carrying legibility.** Do *not* split the hero into a
+headline on a plain panel with the image dumped below or beside it: that "big
+picture under the title" layout throws away the whole reason for a hero and reads
+worse than a plain page. The image *is* the backdrop the words live on (RP Nöje /
+blommortradgard are the reference); if you catch yourself putting the title on
+paper with a photo underneath, you've built the wrong thing. **The scrim must paint _above_ the image**, or light text
 vanishes into a bright photo. The trap, spelled out in `SKILL.md` and
 `review-agents.md`: a scrim with a *lower* `z-index` than the `<img>` renders
 *behind* it and does nothing. Keep the media wrapper itself behind the content,
@@ -219,6 +225,11 @@ bad fields and clear it on input, visible focus rings, an `:user-invalid` style.
   return focus to the burger, and morph the burger to an X.
 - **`:focus-visible`** on *every* interactive element (buttons, links, the hero
   CTAs), not just the ones you remembered.
+- **Nav over a photo hero must flip.** A fixed nav sitting on a dark hero needs
+  *light* logo/links/burger; the instant it scrolls onto the light body it must
+  flip to *dark* (drive it off the `.scrolled` class). Dark nav text on a dark
+  hero image — invisible until you scroll — is an easy miss; check the top of the
+  page, not just mid-scroll.
 
 ## Pre-flight (in addition to SKILL.md's)
 

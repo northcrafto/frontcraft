@@ -229,7 +229,12 @@ bad fields and clear it on input, visible focus rings, an `:user-invalid` style.
   *light* logo/links/burger; the instant it scrolls onto the light body it must
   flip to *dark* (drive it off the `.scrolled` class). Dark nav text on a dark
   hero image — invisible until you scroll — is an easy miss; check the top of the
-  page, not just mid-scroll.
+  page, not just mid-scroll. **Watch the CTA pill in the flip:** if the scrolled
+  state sets links to `color: ink` *and* the CTA pill background also goes dark,
+  scope the link rule as `:not(.cta)` (or raise the CTA's specificity) — otherwise
+  the more-specific link selector repaints the pill's text the same colour as its
+  own background and the word vanishes (dark-on-dark). Verify the CTA in *both*
+  nav states, not just one.
 
 ## Pre-flight (in addition to SKILL.md's)
 

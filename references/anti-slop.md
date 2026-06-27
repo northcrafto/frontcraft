@@ -75,6 +75,47 @@ every project, they're a tell. Spend a free aesthetic axis on a real choice inst
 - **Numbering (01 / 02 / 03)** only when the content is a real sequence (a process,
   a route, a timeline) — not as decoration.
 
+## More tells the review panel keeps catching
+
+These show up once the obvious ones are gone. They're the second layer — the moves
+the model reaches for when it's *trying to look designed*. Let the review-agent loop
+surface them on each build and fold new ones in here over time. None fire
+automatically; kill them only when they're an unprompted reach.
+
+- **Middle-dot (`·`) overuse.** Ration it to ~1 per metadata line. It is not the
+  universal separator for everything (`foo · bar · baz · qux`). Prefer line breaks,
+  hairlines, or columns when you need to separate more than two things.
+- **Decoration strip across the hero bottom** (`BRAND. MOTION. SPATIAL.`,
+  `TYPE / FORM / MOTION`, `ESTD. 2018 · LISBON`). An agency-portfolio cliché. Allowed
+  only when the strip is real navigation or real status, not atmosphere.
+- **Floating corner paragraph in a section header.** Giant left headline with a tiny
+  explainer paragraph floating top-right, aligned to nothing. Either stack headline
+  over body (max ~65ch), or build a real two-column header where the right column
+  carries a visual — not a stray paragraph.
+- **Poetic-craftsman labels.** `From the field`, `Field notes`, `On our desks`,
+  `Loose plates`, "Quietly trusted by". Use plain functional labels (`Testimonials`,
+  `Latest writing`, `Trusted by`) or drop the label.
+- **Micro-meta sentences under a heading.** A little sentence explaining the section
+  to itself ("This is a feature we ship today, not a roadmap promise") is clutter.
+  Eyebrow (if any) + headline + body is enough.
+- **Generic step labels.** `Stage 1 / Stage 2`, `Phase 01 / 02 / 03`, `Step 1 / 2 / 3`.
+  The step's actual content is the label — use the verb (`Install`, `Configure`,
+  `Ship`), not "Step 1: Install".
+- **`<br>`-broken, italicized headlines** as a default "design move". Headlines
+  should read naturally first; get clever only when the brief asks for it.
+- **Vertical rotated text** and **crosshair / hairline grid lines drawn just to
+  "feel designed".** Use them only when they organize real content.
+- **Filled-track scoring/progress bars** as comparison visuals on a marketing page,
+  and **live-stock counters** (`Reservation 412 of 800`) or **version footers**
+  (`v1.4.2`, `Build 0048`, `last sync 4s ago`) on marketing/portfolio pages. These
+  are devtool/dashboard fixtures, not landing-page content.
+- **Custom mouse cursors** are high-risk (accessibility, performance, touch). Treat
+  as a deliberate, justified choice for an experimental brief — never a default
+  flourish.
+- **Headlines that only scream.** Don't reach straight for the biggest size; control
+  hierarchy with weight, color, and space too. And no gradient-filled display text as
+  a default.
+
 ## The em-dash ban (in shipped UI copy)
 
 In anything the user reads on the page — headlines, labels, body, quotes,
@@ -115,6 +156,9 @@ or restructure the sentence. (This is about shipped copy, not internal docs.)
 - Eyebrows / small uppercase section labels: **≤ ceil(sections / 3)**
 - Distinct layout families (6+ section page): **≥ 4**
 - Accent colors: **1**
+- Middle-dot (`·`) separators per metadata line: **≤ 1**
+- Marquees / kinetic scroll strips: **≤ 1**
+- Custom cursors, vertical rotated text, hero decoration strips (unbriefed): **0**
 - Dead `#` links or placeholder buttons: **0**
 - Lorem ipsum / Jane Doe / Acme: **0**
 

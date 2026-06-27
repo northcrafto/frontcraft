@@ -26,6 +26,8 @@ works with Next.js + Tailwind, plain HTML/CSS, React, Svelte, or Vue.
 - Color restraint, done as a method: build a role-based ramp, mute and earn the one
   accent, rotate from ready palette families instead of the beige+brass default
   (see `references/color.md`)
+- Calibrates the look on three plain-language spectrums (calm↔bold, still↔cinematic,
+  airy↔packed) so a direction comes out restrained or expressive on purpose
 - Layout that breaks the "centered hero + three equal cards" default
 - Real photography treated as a first-class part of the design: verified-loading
   stock, full-bleed heroes with readable overlays, image-led service card grids
@@ -100,9 +102,11 @@ frontcraft/
 └── references/
     ├── playbook.md       # deeper recipes, archetypes, worked examples (on demand)
     ├── color.md          # palette method, ready families w/ hex, banned defaults (on demand)
+    ├── systems.md        # when to use an official design system vs bespoke (on demand)
     ├── business-site.md  # the image-led local/business-site recipe (on demand)
     ├── premium.md        # the high-end / "make it expensive" playbook (on demand)
     ├── 3d-hero.md        # working Three.js + react-three-fiber 3D hero code (on demand)
+    ├── motion.md         # motion + performance, stack-agnostic and per-stack (on demand)
     ├── anti-slop.md      # the anti-AI-slop tell list + mechanical count (on demand)
     └── review-agents.md  # post-build review-agent loop + their training briefs (on demand)
 ```

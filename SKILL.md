@@ -51,9 +51,13 @@ template — and the surest way to land the right one is to let the user point a
    2–4 named directions and let them choose (see the rule above); then state the
    chosen direction back as a one-line **Design Read**: "Reading this as: <page
    kind> for <audience>, in a <vibe> direction." Ask about colors in the same
-   spirit. A page that names its own intent doesn't retreat to a generic default.
+   spirit. Then calibrate the look on the three spectrums below. A page that names
+   its own intent doesn't retreat to a generic default.
 3. **Pick the system** — type, color, spacing, motion — using the rules below,
-   building on the direction and palette the user chose.
+   building on the direction and palette the user chose. If the brief is a
+   product / app / enterprise surface rather than a marketing page, consider
+   standing on an official design system instead of hand-rolling one — see
+   `references/systems.md`.
 4. **Build it.** Match the conventions of the existing codebase if there is one
    (framework, styling approach, file layout). If greenfield, pick the stack the
    user asked for, or the simplest that fits.
@@ -64,6 +68,33 @@ template — and the surest way to land the right one is to let the user point a
    finding (is it actually right?), apply the real ones, and re-review until it's
    clean. This is mandatory, not optional. Full recipe in
    `references/review-agents.md`.
+
+## Calibrate the look — three spectrums
+
+The Design Read names *what* the page is; these three spectrums set *how far* to
+push it, so the same direction can come out restrained or expressive on purpose
+rather than by accident. Place the look on each — and when you're working with the
+user, let them nudge the sliders in plain words. It's the same "you choose, I
+execute" deal as direction and color, not a hidden config.
+
+- **Composure — calm ↔ bold.** How much the layout breaks symmetry. *Calm* is an
+  even grid, tidy spans, predictable alignment. *Bold* is asymmetric: off-center
+  heroes, mixed spans, big empty zones, one deliberate focal point. Most marketing
+  and portfolio work lives boldward; trust-first, public-sector, and dense product
+  UI sit calm.
+- **Motion — still ↔ cinematic.** From hover-and-focus only, through tasteful
+  entrance reveals, up to scroll-linked, pinned, physics-y choreography. Set it
+  honestly: if you place it cinematic, the page must actually move (and still honor
+  reduced motion); if you can't ship that cleanly, place it lower and nail a crisp
+  static page. Engineering specifics are in `references/motion.md`.
+- **Density — airy ↔ packed.** Whitespace versus information per screen. *Airy* is
+  luxury (huge sections, few elements — the premium default). *Packed* is a working
+  app or data view (tight rhythm, hairlines instead of cards, tabular numbers).
+  Pick one and hold it; drifting density mid-page is what makes a site feel "off".
+
+Write the three into the Design Read so the build is reproducible, e.g. *"Editorial
+restaurant site, bold composure, light motion, airy density."* They also tell you
+when to stop: a calm, airy brief should not sprout six animations and a packed grid.
 
 ## Typography — the fastest way to look expensive or cheap
 
@@ -249,6 +280,9 @@ always ship the static fallback it specifies.
   affordances, scroll-linked focus. Never animate just because you can.
 - Keep it fast (150–300ms) and eased (`cubic-bezier` over linear). Respect
   `prefers-reduced-motion`. One or two signature moments beat constant motion.
+- **For the engineering** — what's safe to animate, scroll-linked motion without
+  jank, reduced-motion collapse, Core Web Vitals targets, and per-stack levers
+  (vanilla / React / Svelte / Vue) — see `references/motion.md`.
 
 ## Craft details that separate good from generic
 

@@ -181,8 +181,14 @@ trustworthy. Treat images as a first-class part of the design, not an afterthoug
   Never block a build on a missing key, and never invent or hardcode a key.
 - **A full-bleed hero image** with the headline overlaid is the standard, expected
   opening for a marketing site. Keep text readable over it with a dark scrim
-  (a `linear-gradient` overlay) or a solid color block beside it — never light
-  text on a busy bright photo.
+  (a `linear-gradient` overlay) or a solid color block beside it, never light
+  text on a busy bright photo. Two things break this *silently*: the scrim must
+  paint **above** the image (a scrim nested in a `z-index`-negative media wrapper,
+  with a lower z-index than the `<img>`, renders behind it and does nothing — the
+  photo shows through at full brightness), and the scrim must be dark enough for
+  *that* photo (a pale or bright image needs a far stronger scrim, or a solid
+  panel, than a dark one). **Confirm it on the rendered page, never by reasoning
+  about the CSS alone, and check every text-over-image section, not just the hero.**
 - **Image-led service/category cards:** a strong photo per card, an overlaid label
   (a name, optionally a small index like I / II / III), and a real link. This is
   the bread-and-butter pattern for "our services" / "what we offer" sections.
@@ -353,9 +359,12 @@ Walk the result and confirm each, out loud if needed:
    text passes AA?
 4. **Layout:** If I used a card grid, is it image-led with real links (not empty
    text boxes)? Consistent spacing rhythm? Generous whitespace?
-5. **Images:** Real, thematically correct, verified-loading photos? Hero text
-   readable over its image? `alt`, aspect ratios, lazy-loading set? Zero 404s or
-   grey placeholder boxes?
+5. **Images:** Real, thematically correct, verified-loading photos? `alt`, aspect
+   ratios, lazy-loading set? Zero 404s or grey placeholder boxes? **Did I open the
+   rendered page and actually look at every text-over-image section to confirm the
+   text is legible — scrim painting above the image, and dark enough for that
+   photo?** (Light text vanishing into a bright photo is a blocker, and it never
+   shows up by reading the CSS.)
 6. **States & links:** Hover/focus/empty designed? Zero dead `#` links or
    placeholder buttons?
 7. **Responsive & a11y:** Deliberate on mobile? Keyboard-operable, semantic,

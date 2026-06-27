@@ -14,7 +14,10 @@ again with fresh, adversarial eyes. These agents are those eyes.
 1. **Give the reviewers something concrete to look at.** Point them at the built
    files (the HTML/CSS/JS you just wrote) and, if it's deployed or runnable, the
    live URL. If you have a screenshot/preview tool, capture the page and pass the
-   image — reviewers catch far more from a render than from code alone.
+   image — reviewers catch far more from a render than from code alone. Text-over-
+   image legibility especially cannot be trusted from code: a scrim can look correct
+   in CSS yet render *behind* its image. Look at those sections (or screenshot them)
+   before trusting them.
 2. **Launch the panel in parallel.** One message, multiple Agent tool calls, so
    they run concurrently. Use the briefs below verbatim as each agent's prompt,
    filling in the file paths / URL.
@@ -41,16 +44,27 @@ Then each gets its specialized lens:
 > Hunt rendering and layout bugs: headline/line collisions (tight line-height +
 > negative margins), text overflow and clipping, inconsistent spacing, broken
 > alignment, elements overlapping, things that break at common widths (360, 768,
-> 1280) and very tall/short viewports, z-index/sticky glitches, scrollbars, color
+> 1280) and very tall/short viewports, z-index/sticky glitches (including an overlay/scrim that renders
+> *behind* its own image from a stacking-context z-index bug, leaving overlaid text
+> unreadable), scrollbars, color
 > contrast below WCAG AA. Report the worst offenders first.
 
 ### 2. Image & asset auditor
 > Audit every image and media asset. Flag: broken/404 sources, placeholder or
 > obviously-wrong-subject images (a tropical beach on a Nordic site), a *stale or
 > old image left in from a previous version* that no longer matches the copy,
-> mismatched grading/aspect ratios, missing alt text, missing lazy-loading, images
-> that hurt text legibility (no scrim), and oversized files. For each, say whether
-> to replace, regrade, or remove.
+> mismatched grading/aspect ratios, missing alt text, missing lazy-loading, and
+> oversized files. **Scrutinize every text-over-image section hard — this is where
+> text silently goes invisible:** (a) is the scrim/overlay actually painting *above*
+> the image, or is it defeated by a stacking bug? The classic failure: a scrim
+> nested inside a `z-index`-negative media wrapper with a *lower* z-index than the
+> `<img>` renders *behind* the image and does nothing, so the photo shows through at
+> full brightness. (b) Is the scrim dark/opaque enough for *that specific photo*
+> where the text actually sits? A pale or bright image needs a far stronger scrim
+> (or a solid color panel) than a dark one. Light text over a bright photo is a
+> blocker. Do NOT pass legibility on token contrast alone — the image is part of the
+> background, so judge the real render. For each, say whether to replace, regrade,
+> strengthen the scrim, or fix the layering.
 
 ### 3. Content & information-architecture critic
 > Ignore pixels. Judge whether the page emphasizes the *right* things. Ask: is the

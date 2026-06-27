@@ -21,6 +21,20 @@ AI design clusters into three looks that show up regardless of subject:
 All three are fine *when the brief asks for them*. As an unprompted default for
 every project, they're a tell. Spend a free aesthetic axis on a real choice instead.
 
+**Run this check against the _finished_ build, not just the brief — name which of
+the three your result is closest to.** The most-missed one is #2: a dark
+navy/charcoal/near-black background with a single bright accent **reads as default
+"dark-SaaS" slop**, and *cyan, teal, and electric blue count as the "acid" accent*
+every bit as much as acid-green or vermilion. A dark theme with one glowing accent
+is not automatically "premium/cinematic" — by default it's the tell. And escaping
+a default look is **not** a slightly different dark shade or a new accent hue; it's
+committing to an art-directed *identity*: a palette and type with real character,
+and **photography carrying the page**. When a dark build reads generic, the
+fastest, most reliable exit is usually the opposite move — a light, image-led
+editorial layout (white/paper, a characterful display face, one warm accent, big
+verified photos) where the pictures do the work. If you can't name a real reason
+the build is dark-with-a-bright-accent, treat it as look #2 and redesign.
+
 ## Typography tells
 
 - **Don't default to a serif because it "feels premium/editorial."** That instinct
@@ -73,7 +87,9 @@ every project, they're a tell. Spend a free aesthetic axis on a real choice inst
   launch.
 - **No pills/labels overlaid on photos; no decorative photo-credit captions.**
 - **Numbering (01 / 02 / 03)** only when the content is a real sequence (a process,
-  a route, a timeline) — not as decoration.
+  a route, a timeline) — not as decoration. **Never on a filterable/sortable grid:**
+  the moment a filter hides items the visible numbers go non-contiguous (`06`, `07`
+  floating with gaps), which reads as a bug, not a flourish.
 
 ## More tells the review panel keeps catching
 
@@ -152,6 +168,9 @@ or restructure the sentence. (This is about shipped copy, not internal docs.)
 
 ## Mechanical pre-flight (just count)
 
+- Closest of the 3 default looks to the finished build: **name it.** If it *is*
+  one (especially dark + a single bright/cyan/teal/acid accent) and the brief
+  didn't ask for it: **redesign**, don't ship.
 - Em-dashes in shipped copy: **0**
 - Eyebrows / small uppercase section labels: **≤ ceil(sections / 3)**
 - Distinct layout families (6+ section page): **≥ 4**

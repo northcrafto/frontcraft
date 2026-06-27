@@ -85,12 +85,22 @@ Then each gets its specialized lens:
 > on.
 
 ### 5. Taste & AI-tells critic
-> Judge whether this looks designed or templated. Flag generic AI tells: the
-> centered-hero + three-equal-text-cards default, accidental purple-blue gradients,
-> glass-everything, emoji-as-icon, lorem ipsum, system-default fonts, every section
-> wearing the same small uppercase eyebrow, em-dashes used as a style crutch, and
-> any place where the design retreats to a safe default instead of a choice. Say
-> what's generic and what to do instead.
+> Judge whether this looks designed or templated. **First, name which of the three
+> AI-default looks the finished build is closest to — (1) cream + high-contrast
+> serif + terracotta, (2) near-black/navy + a single bright accent (cyan, teal,
+> electric blue, acid-green, or vermilion all count), (3) broadsheet hairlines +
+> dense columns — and if it _is_ one and the brief didn't explicitly ask for it,
+> call that a high-severity finding and say so plainly.** A dark theme with one
+> glowing accent is look #2 by default, not "premium" — the fix isn't a new accent
+> hue, it's an art-directed identity (characterful palette + type, photography
+> carrying the page; often a light, image-led editorial layout is the exit). Then
+> flag the rest: the centered-hero + three-equal-text-cards default, accidental
+> purple-blue gradients, glass-everything, emoji-as-icon, lorem ipsum,
+> system-default fonts, every section wearing the same small uppercase eyebrow,
+> section-number eyebrows or decorative `01/02` numbering (especially on a
+> filterable grid, where it goes non-contiguous), coordinate/locale atmosphere
+> strips, em-dashes used as a style crutch, and any place where the design retreats
+> to a safe default instead of a choice. Say what's generic and what to do instead.
 
 ## Findings format (what comes back)
 

@@ -81,6 +81,30 @@ the animation path entirely, setting the final state directly.
 - **One animation engine per component tree.** Don't run GSAP/Three.js and a
   React motion lib over the same elements — they fight for the same frames.
 
+## Canonical recipes (and the bug that bites)
+
+When you do reach for GSAP + ScrollTrigger (pin / stack / horizontal-pan), a few
+settings separate "engineered" from "janky". These are the defaults:
+
+- **Pin at the *top*, not the center.** The most common pin bug is the section
+  triggering halfway through the scroll instead of sticking at the viewport top.
+  The fix is almost always `start: "top top"` — not `"top center"` or `"top 80%"`.
+- **Horizontal pan / scroll-hijack:** compute the distance and pin against it —
+  `end: () => "+=" + (track.scrollWidth - innerWidth)`, `scrub: 1`,
+  `pinSpacing: true`, and `invalidateOnRefresh: true` so it recalculates on resize.
+- **Scrub means tie to scroll, not time.** `scrub: 1` (a small number) smooths the
+  link to the scrollbar; a tweened duration on a scrubbed timeline fights it.
+- **Magnetic / springy interactions use a spring, not linear easing.** A spring
+  (stiffness ~100, damping ~20, or a `cubic-bezier(0.16, 1, 0.3, 1)` for CSS) feels
+  physical; `linear` feels mechanical. And not every card needs an infinite loop —
+  ambient perpetual motion on everything is noise.
+- **Always pair with cleanup and reduced-motion** (see above): revert the GSAP
+  context on unmount, and skip the whole path under `prefers-reduced-motion`.
+
+These skeletons are GSAP/JS specifics; in React they live in an effect with
+cleanup, in plain HTML they attach on load. The *principles* (pin at top, scrub to
+scroll, spring for physics, clean up, respect reduced motion) are stack-agnostic.
+
 ## Signature-moment discipline
 
 One or two engineered moments beat motion everywhere: a hero reveal, a section

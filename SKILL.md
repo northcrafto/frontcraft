@@ -42,11 +42,22 @@ site, or the codebase already fixes the style.
 A law firm and a synthwave music app must never come out looking like the same
 template — and the surest way to land the right one is to let the user point at it.
 
+**Mine the subject's own world for the distinctive details.** A non-generic look
+comes from the materials, instruments, vernacular, and artifacts of the actual
+subject — a dive shop, a law firm, and a bakery should borrow their texture, words,
+and signature element from three different places. Pin the subject down to one
+concrete thing (what it is, who it's for, the page's single job) and let *that*,
+not a default aesthetic, drive the bold choices.
+
 ## Workflow
 
 1. **Read the brief and the content.** What is this page actually for? Who reads
    it? What is the single most important action or message? Real content drives
-   layout — never reach for lorem ipsum, write plausible real copy.
+   layout — never reach for lorem ipsum, write plausible real copy. **If a site
+   already exists (this is a redesign), read `references/redesign.md` first** —
+   evolving a live site (its URLs, SEO, analytics, brand equity) plays by different
+   rules than greenfield, and the fastest way to lose a client real money is to
+   silently break something that was working.
 2. **Settle the direction _with_ the user.** If it isn't already fixed, offer
    2–4 named directions and let them choose (see the rule above); then state the
    chosen direction back as a one-line **Design Read**: "Reading this as: <page
@@ -96,6 +107,13 @@ Write the three into the Design Read so the build is reproducible, e.g. *"Editor
 restaurant site, bold composure, light motion, airy density."* They also tell you
 when to stop: a calm, airy brief should not sprout six animations and a packed grid.
 
+Put a **1–10 notch** on each for a reproducible shorthand (sensible baseline
+**Composure 8 · Motion 6 · Density 4**). The concrete per-band CSS each notch
+produces, how to infer the notches from a vibe or reference, and the mandatory
+mobile collapse (asymmetric desktop layouts must drop to a single column under
+768px) are in `references/calibration.md` — reach for it when you want the slider
+to mean something buildable rather than a feeling.
+
 ## Typography — the fastest way to look expensive or cheap
 
 - **Make one expressive choice.** A single characterful display face for
@@ -111,6 +129,16 @@ when to stop: a calm, airy brief should not sprout six animations and a packed g
   every multi-line headline before shipping.
 - **Limit weights.** Two or three (e.g. 400/500/700) reads more designed than a
   ladder of every weight.
+- **Mind italic descenders in display type.** A signature move here is one italic
+  word inside a big headline — but at tight display line-heights an italic
+  descender (`g j p q y`, and accented letters like `å ö`) clips into the line
+  below. Give display lines `line-height: 1.1` *minimum* and a little bottom reserve
+  (`padding-bottom`), and eyeball every italic word in a headline on the render
+  before shipping. (This protects the skill's own favourite trick.)
+- **A 4-line hero headline is a font-size error, not a copy problem.** If a long
+  headline wraps to four lines, the size is too big for that copy — step the clamp
+  down. Start display headlines in a sane range and only go huge (`text-7xl`+) when
+  the headline is genuinely 3–5 words.
 
 ## Color — restraint reads as confidence
 
@@ -220,6 +248,35 @@ trustworthy. Treat images as a first-class part of the design, not an afterthoug
   every element is individually fine.
 - **Hierarchy through size, weight, and space** — not boxes inside boxes inside
   boxes. Avoid cards-in-cards-in-cards.
+- **Spend your boldness in one place.** Pick the *one* signature element the page
+  will be remembered by — the thing that embodies this specific brief — and let
+  everything around it stay quiet and disciplined. A page that shouts everywhere
+  shouts nowhere. Chanel's rule applies to layout: before you ship, look at the
+  whole page and **remove one accessory** — the decoration that doesn't serve the
+  brief is almost always still there.
+- **Each layout family appears at most once.** Once "Services" is an image-led card
+  grid, "Work" must not be the same grid again. Across a 6+ section page use at
+  least four distinct layout families; reusing one is how a page reads as templated.
+- **A bento/grid has exactly as many cells as you have content for.** Three items →
+  three cells, not four with an empty one. An empty or half-filled cell means you
+  planned the grid wrong. And give a multi-cell grid real visual variation — at
+  least two or three cells carrying a photo, a tinted panel, or a gradient, not
+  type-on-the-same-background everywhere.
+- **One theme for the whole page.** Sections tint *within* one family (a slightly
+  lighter or darker surface of the same palette), but they do not invert — no light
+  paper section dropped between dark ones. The visitor must never feel they walked
+  into a different website mid-scroll. (One deliberate full theme-switch on scroll
+  is allowed, at most once, as a designed moment.)
+- **One shape language.** Pick one corner-radius scale and hold it — all-sharp,
+  all-soft (~12–16px), or all-pill — or a documented rule (buttons pill, cards 16,
+  inputs 8) followed *everywhere*. Round buttons in an otherwise sharp layout read
+  as an accident.
+- **Hero discipline:** cap the hero's top padding (≈`6rem` desktop) so the content
+  doesn't float halfway down the viewport; keep the nav on a **single line**, height
+  ≈64–80px; put any "trusted by" logo wall *under* the hero, never inside it. Use
+  `min-height: 100svh/100dvh` for full-height heroes, never `100vh` (the iOS
+  address bar makes `100vh` jump). Prefer real grid over flex width-math
+  (`grid-template-columns`, not `width: calc(33% - 1rem)`).
 
 ## The familiar marketing-site shape (use it, don't fight it)
 
@@ -325,6 +382,22 @@ always ship the static fallback it specifies.
   labelled controls, alt text, keyboard operability.
 - **No emoji as UI chrome** unless the direction is explicitly playful — prefer
   real icons (a proper icon set) or clean typographic marks.
+- **Make states feel physical.** On `:active`, nudge the element (a `1px` downward
+  translate or `scale(0.98)`) so a click feels like a press. Hover lifts, active
+  presses.
+- **Loading = skeletons, not spinners.** Show a skeleton shaped like the content
+  that's coming (matching the final layout), not a generic centered spinner — it
+  reads faster and more designed.
+- **Forms have one pattern, held everywhere:** label *above* the input, helper text
+  present, error text *below*. **Never use the placeholder as the label** — it
+  vanishes on focus and fails everyone. Every field control (placeholder, focus
+  ring, helper, error) clears AA against its background.
+- **One icon family, one stroke.** Pick a single icon set for the whole project and
+  standardise its stroke width. Don't mix sets, and don't hand-roll SVG icon paths —
+  if a glyph is missing, add a second library or compose from primitives.
+- **Verify a library exists before importing it.** In a real codebase, check it's
+  actually a dependency (e.g. `package.json`) before you `import`; if it's missing,
+  install it or output the command — never assume a package is present.
 
 ## Kill the AI tells (anti-slop)
 

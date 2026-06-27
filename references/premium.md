@@ -84,6 +84,37 @@ style dark premium" is a far better brief to yourself than "make it nice."
 - Performance is part of luxury: optimized images (sized, lazy, modern formats),
   no layout shift, fast paint. A janky "premium" site isn't premium.
 
+## Glass, done honestly (when the brief actually wants it)
+
+`SKILL.md` bans glassmorphism as an *unprompted default*. But some briefs genuinely
+want it (an Apple-adjacent product, a dark dashboard overlay). When they do, do it
+properly instead of slapping on `backdrop-filter: blur()`:
+
+- The blur alone looks cheap. Add edge refraction: a faint inner border
+  (`border: 1px solid rgba(255,255,255,0.10)`) and an inner highlight
+  (`box-shadow: inset 0 1px 0 rgba(255,255,255,0.12)`), over a low-opacity fill.
+- It only reads as glass over *something* — a photo, a gradient, content scrolling
+  behind. Glass over a flat color is just a translucent box.
+- **Always ship a fallback.** Under `@media (prefers-reduced-transparency: reduce)`
+  (and where `backdrop-filter` is unsupported), replace it with a solid tinted
+  surface — never leave unreadable text floating on a blur.
+
+```css
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 8px 40px rgba(0,0,0,0.20);
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass { background: rgba(20,20,24,0.92); backdrop-filter: none; }
+}
+```
+
+Honesty note: Apple's "Liquid Glass" is an Apple-platform material; there is no
+official web `liquid-glass.css`. A web version is a `backdrop-filter` approximation
+— comment it as such, don't pretend it's the real material.
+
 ## Reality check
 
 Premium is a finish level, not a sticker. If the budget/stack is a static page,

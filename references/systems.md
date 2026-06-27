@@ -22,6 +22,27 @@ on an official design system instead of hand-rolling one badly.
 | Modern SaaS where you own the components | shadcn/ui | You own the code; easy to restyle |
 | Quick local-business / agency MVP | Tailwind + vanilla, or Bootstrap | Boring, fast, fine |
 
+## Install commands & canonical docs (ground in the real thing)
+
+Before building on a system, install the real package and read its real docs —
+don't reconstruct its API from memory (that's how you hallucinate component props):
+
+| System | Install | Docs |
+|---|---|---|
+| Fluent UI | `npm i @fluentui/react-components` | fluent2.microsoft.design |
+| Material 3 | `npm i @mui/material` (or Material Web) | m3.material.io |
+| Carbon | `npm i @carbon/react @carbon/styles` | carbondesignsystem.com |
+| Polaris | `npm i @shopify/polaris` | polaris.shopify.com |
+| Atlaskit | per-component (`@atlaskit/*`) | atlassian.design |
+| Primer | `npm i @primer/react` | primer.style |
+| GOV.UK Frontend | `npm i govuk-frontend` | design-system.service.gov.uk |
+| USWDS | `npm i @uswds/uswds` | designsystem.digital.gov |
+| Radix Themes | `npm i @radix-ui/themes` | radix-ui.com/themes |
+| shadcn/ui | `npx shadcn@latest init` | ui.shadcn.com |
+
+Check `package.json` first — if the system isn't a dependency yet, run the install
+(or output the command) before importing from it.
+
 ## Honesty rules
 
 - **Install and use the official package.** Don't recreate a system's CSS by hand,

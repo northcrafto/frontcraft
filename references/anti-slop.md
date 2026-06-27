@@ -75,6 +75,16 @@ the build is dark-with-a-bright-accent, treat it as look #2 and redesign.
 - **Hero stack discipline:** ≤ ~4 text elements (one small label OR brand strip,
   headline, subtext, CTAs). No trust micro-strip, tagline, or feature bullets
   crammed into the hero — those move to sections below it.
+- **A long list is a layout choice, not a default.** More than ~5 items wants a
+  *different component*, not a longer list: a 2-column grouped split, a card grid
+  with image + label, tabs/accordion, scroll-snap pills, or a marquee. A spec sheet
+  of 10 rows each under a hairline rule is the worst default — chunk it, feature the
+  top 3–5 with a "view all", or move it to its own page.
+- **No data-dump sections on a marketing page.** A 30-row award list, a giant
+  pricing matrix, a full publication table — show the top few plus "view full
+  list", or link a dedicated page. Don't paste the database onto the landing page.
+- **Logo wall goes *under* the hero, never inside it**, and it's logos only — no
+  `Vercel · hosting` category label tacked under each one.
 
 ## Structural-decoration tells (the small stuff that screams AI)
 
@@ -154,6 +164,21 @@ or restructure the sentence. (This is about shipped copy, not internal docs.)
   sample data.
 - **Re-read every visible string before shipping.** Cut cute-but-broken AI phrasing
   and forced wordplay; plain and correct beats clever and wrong.
+- **Default content shape per section:** a short headline (≤ ~8 words) + a short
+  sub-paragraph (≤ ~25 words) + one visual *or* one CTA. If a section needs more,
+  it's probably two sections.
+- **One copy register per page.** Don't mix clipped technical-mono labels, flowery
+  editorial prose, and punchy marketing voice in the same site — pick the voice the
+  brand uses and hold it, the same way you hold one palette.
+- **Testimonials are snippets, not essays.** ≤ 3 lines of quote; if the real review
+  is longer, cut it to the sharp part. Attribution is always name + role (+ company
+  where it matters), never a bare "— Sarah". Use real typographic quotes (`" "`),
+  and no em-dashes inside the quote text.
+- **Write from the user's side of the screen.** Name things by what the person
+  controls ("Notifications", not "Webhook config"). Buttons say what happens
+  ("Save changes", not "Submit"), and an action keeps its name through the flow
+  (a "Publish" button produces a "Published" toast). Empty and error states give
+  direction in the interface's voice, not an apology or a mood.
 
 ## Real images, not fakes
 
@@ -184,6 +209,11 @@ or restructure the sentence. (This is about shipped copy, not internal docs.)
 - Custom cursors, vertical rotated text, hero decoration strips (unbriefed): **0**
 - Dead `#` links or placeholder buttons: **0**
 - Lorem ipsum / Jane Doe / Acme: **0**
+- Distinct themes on the page: **1** (sections tint within one family; they don't invert)
+- Corner-radius scales in use: **1** (or one documented per-element rule, held everywhere)
+- Empty/half-filled bento or grid cells: **0**
+- Italic display words with clipped descenders: **0**
+- Lists over ~5 items left as a plain long list: **0** (use a real component)
 
 If a count is off, fix it before the review panel runs. This pairs with the core
 `SKILL.md` pre-flight, not replaces it.

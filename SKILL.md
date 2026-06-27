@@ -92,13 +92,25 @@ template — and the surest way to land the right one is to let the user point a
   existing site, or the codebase already fixes the colors.
 - **One palette, committed.** A small set of neutrals plus **one** accent does
   more than a rainbow. If you reach for a second accent, justify it.
+- **Build a real ramp, not "some nice colors."** A palette is a small system of
+  roles, assigned once: `--bg --surface --fg --muted --line --accent --on-accent`.
+  Pick the neutral temperature first (warm toward stone/sand, or cool toward
+  slate), build a tinted ramp, then lock one accent across the *whole* page (no
+  surprise second hue in a late section). Tint shadows to the background hue, and in
+  dark mode re-tint surfaces rather than inverting to `#000`.
 - **Neutrals are never pure gray.** Tint them — warm (toward stone/sand) or cool
   (toward slate) — so surfaces feel intentional, not default `#888`.
-- **Earn your contrast.** Body text must clear WCAG AA (4.5:1). The accent is for
-  the *one* thing you want clicked, not for decoration everywhere.
-- **Banned-by-default AI tells:** the purple→blue "AI gradient," glassmorphism on
-  every card, neon-glow drop shadows, and emoji used as iconography. Use them
-  only if the chosen direction genuinely calls for it — and then do it well.
+- **Mute the accent, and earn its contrast.** Keep accent saturation under ~80% by
+  default — fully-saturated hues read as system-default, not chosen. Body and muted
+  text must clear WCAG AA (4.5:1) on their background, and the accent must clear AA
+  against its own `--on-accent` (a gold button usually needs *dark* text, not white).
+- **Banned-by-default AI tells:** the purple→blue "AI gradient," the auto
+  beige+brass+espresso "premium-consumer" palette, glassmorphism on every card,
+  neon-glow drop shadows, and emoji used as iconography. Use them only if the chosen
+  direction genuinely calls for it — and then do it well.
+- **For the method in full** — the constructive steps, ready palette families with
+  hex, the banned-palette hex list, and the rotate-don't-repeat rule — see
+  `references/color.md`. Reach for it whenever you're picking color.
 
 ## Images — most real sites live or die on them
 

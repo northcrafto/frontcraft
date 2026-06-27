@@ -23,7 +23,9 @@ works with Next.js + Tailwind, plain HTML/CSS, React, Svelte, or Vue.
   looking like the same template)
 - Real typographic system: one expressive choice, a true type scale, headline
   collision checks
-- Color restraint: one committed palette, tinted neutrals, a single earned accent
+- Color restraint, done as a method: build a role-based ramp, mute and earn the one
+  accent, rotate from ready palette families instead of the beige+brass default
+  (see `references/color.md`)
 - Layout that breaks the "centered hero + three equal cards" default
 - Real photography treated as a first-class part of the design: verified-loading
   stock, full-bleed heroes with readable overlays, image-led service card grids
@@ -97,6 +99,7 @@ frontcraft/
 ├── SKILL.md              # the core design rules (always read when triggered)
 └── references/
     ├── playbook.md       # deeper recipes, archetypes, worked examples (on demand)
+    ├── color.md          # palette method, ready families w/ hex, banned defaults (on demand)
     ├── business-site.md  # the image-led local/business-site recipe (on demand)
     ├── premium.md        # the high-end / "make it expensive" playbook (on demand)
     ├── 3d-hero.md        # working Three.js + react-three-fiber 3D hero code (on demand)
